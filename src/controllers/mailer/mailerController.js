@@ -70,9 +70,8 @@ module.exports = {
             let transporter = await createTransport();
             const email = createEmail(contacts, content);
 
-            await transporter.sendMail(email).catch((err) => {
-                return res.status(401).json({error : err})
-            })
+            await transporter.sendMail(email);
+
             return res.status(201).json({ msg: "Email enviado" })
 
         }
